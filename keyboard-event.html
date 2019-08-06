@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>keyboard event</title>
+</head>
+<body onload="docReady()">
+    <img src="virus.png" id="virus" alt="virus" style="position: absolute; top: 200px;left: 0; width: 200px; height: auto"/>
+    <script>
+
+       function upArowPresser() {
+           let elemen = document.getElementById("virus");
+                elemen.style.top = parseInt(elemen.style.top) - 10 +"px";
+       }
+       function dowArowPresser() {
+           let elemen = document.getElementById("virus");
+           elemen.style.top = parseInt(elemen.style.top) + 10 +"px";
+       }
+       function lefArowPresser() {
+           let elemen = document.getElementById("virus");
+           elemen.style.left = parseInt(elemen.style.left) - 10 +"px";
+       }
+       function rightArowPresser() {
+           let elemen = document.getElementById("virus");
+           elemen.style.left = parseInt(elemen.style.left) + 10 +"px";
+       }
+       function moveimg(evt) {
+           switch (evt.keyCode) {
+               case 37:
+                  lefArowPresser();
+                   break;
+               case 39:
+                   rightArowPresser();
+                   break;
+               case 38:
+                   upArowPresser();
+                   break;
+               case 40:
+                   dowArowPresser();
+                   break;
+           }
+       }
+        function docReady() {
+            window.addEventListener('keydown', moveimg);
+        }
+    </script>
+</body>
+</html>
